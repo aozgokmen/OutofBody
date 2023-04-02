@@ -1,0 +1,805 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="Plant_SystemModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="categories">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="category_name" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="customers">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="first_name" Type="varchar" MaxLength="100" />
+          <Property Name="last_name" Type="varchar" MaxLength="300" />
+          <Property Name="cell_phone" Type="varchar" MaxLength="200" />
+          <Property Name="email" Type="varchar" MaxLength="200" />
+          <Property Name="c_password" Type="varchar" MaxLength="200" />
+          <Property Name="created_at" Type="datetime" />
+          <Property Name="updated_at" Type="datetime" />
+          <Property Name="deleted_at" Type="datetime" />
+        </EntityType>
+        <EntityType Name="farmer_location">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="farmer_id" Type="int" />
+          <Property Name="location_id" Type="int" />
+        </EntityType>
+        <EntityType Name="farmers">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="first_name" Type="varchar" MaxLength="100" />
+          <Property Name="last_name" Type="varchar" MaxLength="300" />
+          <Property Name="cell_phone" Type="varchar" MaxLength="200" />
+          <Property Name="created_at" Type="datetime" />
+          <Property Name="updated_at" Type="datetime" />
+          <Property Name="deleted_at" Type="datetime" />
+        </EntityType>
+        <EntityType Name="location_plant">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="location_id" Type="int" />
+          <Property Name="plant_id" Type="int" />
+        </EntityType>
+        <EntityType Name="locations">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="district" Type="varchar" MaxLength="100" />
+          <Property Name="county" Type="varchar" MaxLength="100" />
+          <Property Name="province" Type="varchar" MaxLength="150" />
+          <Property Name="country" Type="varchar" MaxLength="200" />
+        </EntityType>
+        <EntityType Name="plant_brands">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="brand_name" Type="varchar" MaxLength="100" />
+          <Property Name="website" Type="varchar" MaxLength="300" />
+          <Property Name="created_at" Type="datetime" />
+          <Property Name="updated_at" Type="datetime" />
+          <Property Name="deleted_at" Type="datetime" />
+        </EntityType>
+        <EntityType Name="plants">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="name" Type="varchar" MaxLength="100" />
+          <Property Name="price" Type="int" />
+          <Property Name="category_id" Type="int" />
+          <Property Name="brand_id" Type="int" />
+          <Property Name="location_id" Type="int" />
+          <Property Name="created_at" Type="datetime" />
+          <Property Name="updated_at" Type="datetime" />
+          <Property Name="deleted_at" Type="datetime" />
+          <Property Name="customer_id" Type="int" />
+        </EntityType>
+        <EntityType Name="sales">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="customer_id" Type="int" />
+          <Property Name="plant_id" Type="int" />
+          <Property Name="location_id" Type="int" />
+          <Property Name="farmer_id" Type="int" />
+          <Property Name="sales_price" Type="int" />
+          <Property Name="isBuy" Type="bit" />
+        </EntityType>
+        <Association Name="FK__farmer_lo__farme__33D4B598">
+          <End Role="farmers" Type="Self.farmers" Multiplicity="0..1" />
+          <End Role="farmer_location" Type="Self.farmer_location" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="farmers">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="farmer_location">
+              <PropertyRef Name="farmer_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__farmer_lo__locat__34C8D9D1">
+          <End Role="locations" Type="Self.locations" Multiplicity="0..1" />
+          <End Role="farmer_location" Type="Self.farmer_location" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="locations">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="farmer_location">
+              <PropertyRef Name="location_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__location___locat__35BCFE0A">
+          <End Role="locations" Type="Self.locations" Multiplicity="0..1" />
+          <End Role="location_plant" Type="Self.location_plant" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="locations">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="location_plant">
+              <PropertyRef Name="location_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__location___plant__36B12243">
+          <End Role="plants" Type="Self.plants" Multiplicity="0..1" />
+          <End Role="location_plant" Type="Self.location_plant" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="plants">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="location_plant">
+              <PropertyRef Name="plant_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__plants__brand_id__37A5467C">
+          <End Role="plant_brands" Type="Self.plant_brands" Multiplicity="0..1" />
+          <End Role="plants" Type="Self.plants" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="plant_brands">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="plants">
+              <PropertyRef Name="brand_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__plants__category__38996AB5">
+          <End Role="categories" Type="Self.categories" Multiplicity="0..1" />
+          <End Role="plants" Type="Self.plants" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="categories">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="plants">
+              <PropertyRef Name="category_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__plants__location__398D8EEE">
+          <End Role="locations" Type="Self.locations" Multiplicity="0..1" />
+          <End Role="plants" Type="Self.plants" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="locations">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="plants">
+              <PropertyRef Name="location_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__sales__customer___3C69FB99">
+          <End Role="customers" Type="Self.customers" Multiplicity="0..1" />
+          <End Role="sales" Type="Self.sales" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="customers">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="sales">
+              <PropertyRef Name="customer_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__sales__farmer_id__3D5E1FD2">
+          <End Role="farmers" Type="Self.farmers" Multiplicity="0..1" />
+          <End Role="sales" Type="Self.sales" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="farmers">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="sales">
+              <PropertyRef Name="farmer_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__sales__location___3E52440B">
+          <End Role="locations" Type="Self.locations" Multiplicity="0..1" />
+          <End Role="sales" Type="Self.sales" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="locations">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="sales">
+              <PropertyRef Name="location_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__sales__plant_id__3F466844">
+          <End Role="plants" Type="Self.plants" Multiplicity="0..1" />
+          <End Role="sales" Type="Self.sales" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="plants">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="sales">
+              <PropertyRef Name="plant_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_plants_customers">
+          <End Role="customers" Type="Self.customers" Multiplicity="0..1" />
+          <End Role="plants" Type="Self.plants" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="customers">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="plants">
+              <PropertyRef Name="customer_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_plants_plants">
+          <End Role="plants" Type="Self.plants" Multiplicity="1" />
+          <End Role="plants1" Type="Self.plants" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="plants">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="plants1">
+              <PropertyRef Name="id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Plant_SystemModelStoreContainer">
+          <EntitySet Name="categories" EntityType="Self.categories" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="customers" EntityType="Self.customers" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="farmer_location" EntityType="Self.farmer_location" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="farmers" EntityType="Self.farmers" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="location_plant" EntityType="Self.location_plant" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="locations" EntityType="Self.locations" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="plant_brands" EntityType="Self.plant_brands" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="plants" EntityType="Self.plants" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sales" EntityType="Self.sales" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__farmer_lo__farme__33D4B598" Association="Self.FK__farmer_lo__farme__33D4B598">
+            <End Role="farmers" EntitySet="farmers" />
+            <End Role="farmer_location" EntitySet="farmer_location" />
+          </AssociationSet>
+          <AssociationSet Name="FK__farmer_lo__locat__34C8D9D1" Association="Self.FK__farmer_lo__locat__34C8D9D1">
+            <End Role="locations" EntitySet="locations" />
+            <End Role="farmer_location" EntitySet="farmer_location" />
+          </AssociationSet>
+          <AssociationSet Name="FK__location___locat__35BCFE0A" Association="Self.FK__location___locat__35BCFE0A">
+            <End Role="locations" EntitySet="locations" />
+            <End Role="location_plant" EntitySet="location_plant" />
+          </AssociationSet>
+          <AssociationSet Name="FK__location___plant__36B12243" Association="Self.FK__location___plant__36B12243">
+            <End Role="plants" EntitySet="plants" />
+            <End Role="location_plant" EntitySet="location_plant" />
+          </AssociationSet>
+          <AssociationSet Name="FK__plants__brand_id__37A5467C" Association="Self.FK__plants__brand_id__37A5467C">
+            <End Role="plant_brands" EntitySet="plant_brands" />
+            <End Role="plants" EntitySet="plants" />
+          </AssociationSet>
+          <AssociationSet Name="FK__plants__category__38996AB5" Association="Self.FK__plants__category__38996AB5">
+            <End Role="categories" EntitySet="categories" />
+            <End Role="plants" EntitySet="plants" />
+          </AssociationSet>
+          <AssociationSet Name="FK__plants__location__398D8EEE" Association="Self.FK__plants__location__398D8EEE">
+            <End Role="locations" EntitySet="locations" />
+            <End Role="plants" EntitySet="plants" />
+          </AssociationSet>
+          <AssociationSet Name="FK__sales__customer___3C69FB99" Association="Self.FK__sales__customer___3C69FB99">
+            <End Role="customers" EntitySet="customers" />
+            <End Role="sales" EntitySet="sales" />
+          </AssociationSet>
+          <AssociationSet Name="FK__sales__farmer_id__3D5E1FD2" Association="Self.FK__sales__farmer_id__3D5E1FD2">
+            <End Role="farmers" EntitySet="farmers" />
+            <End Role="sales" EntitySet="sales" />
+          </AssociationSet>
+          <AssociationSet Name="FK__sales__location___3E52440B" Association="Self.FK__sales__location___3E52440B">
+            <End Role="locations" EntitySet="locations" />
+            <End Role="sales" EntitySet="sales" />
+          </AssociationSet>
+          <AssociationSet Name="FK__sales__plant_id__3F466844" Association="Self.FK__sales__plant_id__3F466844">
+            <End Role="plants" EntitySet="plants" />
+            <End Role="sales" EntitySet="sales" />
+          </AssociationSet>
+          <AssociationSet Name="FK_plants_customers" Association="Self.FK_plants_customers">
+            <End Role="customers" EntitySet="customers" />
+            <End Role="plants" EntitySet="plants" />
+          </AssociationSet>
+          <AssociationSet Name="FK_plants_plants" Association="Self.FK_plants_plants">
+            <End Role="plants" EntitySet="plants" />
+            <End Role="plants1" EntitySet="plants" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="Plant_SystemModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="Plant_DBEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="categories" EntityType="Plant_SystemModel.categories" />
+          <EntitySet Name="customers" EntityType="Plant_SystemModel.customers" />
+          <EntitySet Name="farmer_location" EntityType="Plant_SystemModel.farmer_location" />
+          <EntitySet Name="farmers" EntityType="Plant_SystemModel.farmers" />
+          <EntitySet Name="location_plant" EntityType="Plant_SystemModel.location_plant" />
+          <EntitySet Name="locations" EntityType="Plant_SystemModel.locations" />
+          <EntitySet Name="plant_brands" EntityType="Plant_SystemModel.plant_brands" />
+          <EntitySet Name="plants" EntityType="Plant_SystemModel.plants" />
+          <EntitySet Name="sales" EntityType="Plant_SystemModel.sales" />
+          <AssociationSet Name="FK__plants__category__38996AB5" Association="Plant_SystemModel.FK__plants__category__38996AB5">
+            <End Role="categories" EntitySet="categories" />
+            <End Role="plants" EntitySet="plants" />
+          </AssociationSet>
+          <AssociationSet Name="FK__sales__customer___3C69FB99" Association="Plant_SystemModel.FK__sales__customer___3C69FB99">
+            <End Role="customers" EntitySet="customers" />
+            <End Role="sales" EntitySet="sales" />
+          </AssociationSet>
+          <AssociationSet Name="FK_plants_customers" Association="Plant_SystemModel.FK_plants_customers">
+            <End Role="customers" EntitySet="customers" />
+            <End Role="plants" EntitySet="plants" />
+          </AssociationSet>
+          <AssociationSet Name="FK__farmer_lo__farme__33D4B598" Association="Plant_SystemModel.FK__farmer_lo__farme__33D4B598">
+            <End Role="farmers" EntitySet="farmers" />
+            <End Role="farmer_location" EntitySet="farmer_location" />
+          </AssociationSet>
+          <AssociationSet Name="FK__farmer_lo__locat__34C8D9D1" Association="Plant_SystemModel.FK__farmer_lo__locat__34C8D9D1">
+            <End Role="locations" EntitySet="locations" />
+            <End Role="farmer_location" EntitySet="farmer_location" />
+          </AssociationSet>
+          <AssociationSet Name="FK__sales__farmer_id__3D5E1FD2" Association="Plant_SystemModel.FK__sales__farmer_id__3D5E1FD2">
+            <End Role="farmers" EntitySet="farmers" />
+            <End Role="sales" EntitySet="sales" />
+          </AssociationSet>
+          <AssociationSet Name="FK__location___locat__35BCFE0A" Association="Plant_SystemModel.FK__location___locat__35BCFE0A">
+            <End Role="locations" EntitySet="locations" />
+            <End Role="location_plant" EntitySet="location_plant" />
+          </AssociationSet>
+          <AssociationSet Name="FK__location___plant__36B12243" Association="Plant_SystemModel.FK__location___plant__36B12243">
+            <End Role="plants" EntitySet="plants" />
+            <End Role="location_plant" EntitySet="location_plant" />
+          </AssociationSet>
+          <AssociationSet Name="FK__plants__location__398D8EEE" Association="Plant_SystemModel.FK__plants__location__398D8EEE">
+            <End Role="locations" EntitySet="locations" />
+            <End Role="plants" EntitySet="plants" />
+          </AssociationSet>
+          <AssociationSet Name="FK__sales__location___3E52440B" Association="Plant_SystemModel.FK__sales__location___3E52440B">
+            <End Role="locations" EntitySet="locations" />
+            <End Role="sales" EntitySet="sales" />
+          </AssociationSet>
+          <AssociationSet Name="FK__plants__brand_id__37A5467C" Association="Plant_SystemModel.FK__plants__brand_id__37A5467C">
+            <End Role="plant_brands" EntitySet="plant_brands" />
+            <End Role="plants" EntitySet="plants" />
+          </AssociationSet>
+          <AssociationSet Name="FK__sales__plant_id__3F466844" Association="Plant_SystemModel.FK__sales__plant_id__3F466844">
+            <End Role="plants" EntitySet="plants" />
+            <End Role="sales" EntitySet="sales" />
+          </AssociationSet>
+          <AssociationSet Name="FK_plants_plants" Association="Plant_SystemModel.FK_plants_plants">
+            <End Role="plants" EntitySet="plants" />
+            <End Role="plants1" EntitySet="plants" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="categories">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="category_name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="plants" Relationship="Plant_SystemModel.FK__plants__category__38996AB5" FromRole="categories" ToRole="plants" />
+        </EntityType>
+        <EntityType Name="customers">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="first_name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="last_name" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="cell_phone" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="email" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="c_password" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="created_at" Type="DateTime" Precision="3" />
+          <Property Name="updated_at" Type="DateTime" Precision="3" />
+          <Property Name="deleted_at" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="sales" Relationship="Plant_SystemModel.FK__sales__customer___3C69FB99" FromRole="customers" ToRole="sales" />
+          <NavigationProperty Name="plants" Relationship="Plant_SystemModel.FK_plants_customers" FromRole="customers" ToRole="plants" />
+        </EntityType>
+        <EntityType Name="farmer_location">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="farmer_id" Type="Int32" />
+          <Property Name="location_id" Type="Int32" />
+          <NavigationProperty Name="farmers" Relationship="Plant_SystemModel.FK__farmer_lo__farme__33D4B598" FromRole="farmer_location" ToRole="farmers" />
+          <NavigationProperty Name="locations" Relationship="Plant_SystemModel.FK__farmer_lo__locat__34C8D9D1" FromRole="farmer_location" ToRole="locations" />
+        </EntityType>
+        <EntityType Name="farmers">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="first_name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="last_name" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="cell_phone" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="created_at" Type="DateTime" Precision="3" />
+          <Property Name="updated_at" Type="DateTime" Precision="3" />
+          <Property Name="deleted_at" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="farmer_location" Relationship="Plant_SystemModel.FK__farmer_lo__farme__33D4B598" FromRole="farmers" ToRole="farmer_location" />
+          <NavigationProperty Name="sales" Relationship="Plant_SystemModel.FK__sales__farmer_id__3D5E1FD2" FromRole="farmers" ToRole="sales" />
+        </EntityType>
+        <EntityType Name="location_plant">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="location_id" Type="Int32" />
+          <Property Name="plant_id" Type="Int32" />
+          <NavigationProperty Name="locations" Relationship="Plant_SystemModel.FK__location___locat__35BCFE0A" FromRole="location_plant" ToRole="locations" />
+          <NavigationProperty Name="plants" Relationship="Plant_SystemModel.FK__location___plant__36B12243" FromRole="location_plant" ToRole="plants" />
+        </EntityType>
+        <EntityType Name="locations">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="district" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="county" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="province" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="country" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="farmer_location" Relationship="Plant_SystemModel.FK__farmer_lo__locat__34C8D9D1" FromRole="locations" ToRole="farmer_location" />
+          <NavigationProperty Name="location_plant" Relationship="Plant_SystemModel.FK__location___locat__35BCFE0A" FromRole="locations" ToRole="location_plant" />
+          <NavigationProperty Name="plants" Relationship="Plant_SystemModel.FK__plants__location__398D8EEE" FromRole="locations" ToRole="plants" />
+          <NavigationProperty Name="sales" Relationship="Plant_SystemModel.FK__sales__location___3E52440B" FromRole="locations" ToRole="sales" />
+        </EntityType>
+        <EntityType Name="plant_brands">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="brand_name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="website" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="created_at" Type="DateTime" Precision="3" />
+          <Property Name="updated_at" Type="DateTime" Precision="3" />
+          <Property Name="deleted_at" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="plants" Relationship="Plant_SystemModel.FK__plants__brand_id__37A5467C" FromRole="plant_brands" ToRole="plants" />
+        </EntityType>
+        <EntityType Name="plants">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="price" Type="Int32" />
+          <Property Name="category_id" Type="Int32" />
+          <Property Name="brand_id" Type="Int32" />
+          <Property Name="location_id" Type="Int32" />
+          <Property Name="created_at" Type="DateTime" Precision="3" />
+          <Property Name="updated_at" Type="DateTime" Precision="3" />
+          <Property Name="deleted_at" Type="DateTime" Precision="3" />
+          <Property Name="customer_id" Type="Int32" />
+          <NavigationProperty Name="categories" Relationship="Plant_SystemModel.FK__plants__category__38996AB5" FromRole="plants" ToRole="categories" />
+          <NavigationProperty Name="customers" Relationship="Plant_SystemModel.FK_plants_customers" FromRole="plants" ToRole="customers" />
+          <NavigationProperty Name="location_plant" Relationship="Plant_SystemModel.FK__location___plant__36B12243" FromRole="plants" ToRole="location_plant" />
+          <NavigationProperty Name="locations" Relationship="Plant_SystemModel.FK__plants__location__398D8EEE" FromRole="plants" ToRole="locations" />
+          <NavigationProperty Name="plant_brands" Relationship="Plant_SystemModel.FK__plants__brand_id__37A5467C" FromRole="plants" ToRole="plant_brands" />
+          <NavigationProperty Name="sales" Relationship="Plant_SystemModel.FK__sales__plant_id__3F466844" FromRole="plants" ToRole="sales" />
+          <NavigationProperty Name="plants1" Relationship="Plant_SystemModel.FK_plants_plants" FromRole="plants" ToRole="plants1" />
+          <NavigationProperty Name="plants2" Relationship="Plant_SystemModel.FK_plants_plants" FromRole="plants1" ToRole="plants" />
+        </EntityType>
+        <EntityType Name="sales">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="customer_id" Type="Int32" />
+          <Property Name="plant_id" Type="Int32" />
+          <Property Name="location_id" Type="Int32" />
+          <Property Name="farmer_id" Type="Int32" />
+          <Property Name="sales_price" Type="Int32" />
+          <Property Name="isBuy" Type="Boolean" />
+          <NavigationProperty Name="customers" Relationship="Plant_SystemModel.FK__sales__customer___3C69FB99" FromRole="sales" ToRole="customers" />
+          <NavigationProperty Name="farmers" Relationship="Plant_SystemModel.FK__sales__farmer_id__3D5E1FD2" FromRole="sales" ToRole="farmers" />
+          <NavigationProperty Name="locations" Relationship="Plant_SystemModel.FK__sales__location___3E52440B" FromRole="sales" ToRole="locations" />
+          <NavigationProperty Name="plants" Relationship="Plant_SystemModel.FK__sales__plant_id__3F466844" FromRole="sales" ToRole="plants" />
+        </EntityType>
+        <Association Name="FK__plants__category__38996AB5">
+          <End Type="Plant_SystemModel.categories" Role="categories" Multiplicity="0..1" />
+          <End Type="Plant_SystemModel.plants" Role="plants" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="categories">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="plants">
+              <PropertyRef Name="category_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__sales__customer___3C69FB99">
+          <End Type="Plant_SystemModel.customers" Role="customers" Multiplicity="0..1" />
+          <End Type="Plant_SystemModel.sales" Role="sales" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="customers">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="sales">
+              <PropertyRef Name="customer_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_plants_customers">
+          <End Type="Plant_SystemModel.customers" Role="customers" Multiplicity="0..1" />
+          <End Type="Plant_SystemModel.plants" Role="plants" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="customers">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="plants">
+              <PropertyRef Name="customer_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__farmer_lo__farme__33D4B598">
+          <End Type="Plant_SystemModel.farmers" Role="farmers" Multiplicity="0..1" />
+          <End Type="Plant_SystemModel.farmer_location" Role="farmer_location" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="farmers">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="farmer_location">
+              <PropertyRef Name="farmer_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__farmer_lo__locat__34C8D9D1">
+          <End Type="Plant_SystemModel.locations" Role="locations" Multiplicity="0..1" />
+          <End Type="Plant_SystemModel.farmer_location" Role="farmer_location" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="locations">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="farmer_location">
+              <PropertyRef Name="location_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__sales__farmer_id__3D5E1FD2">
+          <End Type="Plant_SystemModel.farmers" Role="farmers" Multiplicity="0..1" />
+          <End Type="Plant_SystemModel.sales" Role="sales" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="farmers">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="sales">
+              <PropertyRef Name="farmer_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__location___locat__35BCFE0A">
+          <End Type="Plant_SystemModel.locations" Role="locations" Multiplicity="0..1" />
+          <End Type="Plant_SystemModel.location_plant" Role="location_plant" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="locations">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="location_plant">
+              <PropertyRef Name="location_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__location___plant__36B12243">
+          <End Type="Plant_SystemModel.plants" Role="plants" Multiplicity="0..1" />
+          <End Type="Plant_SystemModel.location_plant" Role="location_plant" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="plants">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="location_plant">
+              <PropertyRef Name="plant_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__plants__location__398D8EEE">
+          <End Type="Plant_SystemModel.locations" Role="locations" Multiplicity="0..1" />
+          <End Type="Plant_SystemModel.plants" Role="plants" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="locations">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="plants">
+              <PropertyRef Name="location_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__sales__location___3E52440B">
+          <End Type="Plant_SystemModel.locations" Role="locations" Multiplicity="0..1" />
+          <End Type="Plant_SystemModel.sales" Role="sales" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="locations">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="sales">
+              <PropertyRef Name="location_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__plants__brand_id__37A5467C">
+          <End Type="Plant_SystemModel.plant_brands" Role="plant_brands" Multiplicity="0..1" />
+          <End Type="Plant_SystemModel.plants" Role="plants" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="plant_brands">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="plants">
+              <PropertyRef Name="brand_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__sales__plant_id__3F466844">
+          <End Type="Plant_SystemModel.plants" Role="plants" Multiplicity="0..1" />
+          <End Type="Plant_SystemModel.sales" Role="sales" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="plants">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="sales">
+              <PropertyRef Name="plant_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_plants_plants">
+          <End Type="Plant_SystemModel.plants" Role="plants" Multiplicity="1" />
+          <End Type="Plant_SystemModel.plants" Role="plants1" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="plants">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="plants1">
+              <PropertyRef Name="id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="Plant_SystemModelStoreContainer" CdmEntityContainer="Plant_DBEntities">
+          <EntitySetMapping Name="categories">
+            <EntityTypeMapping TypeName="Plant_SystemModel.categories">
+              <MappingFragment StoreEntitySet="categories">
+                <ScalarProperty Name="category_name" ColumnName="category_name" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="customers">
+            <EntityTypeMapping TypeName="Plant_SystemModel.customers">
+              <MappingFragment StoreEntitySet="customers">
+                <ScalarProperty Name="deleted_at" ColumnName="deleted_at" />
+                <ScalarProperty Name="updated_at" ColumnName="updated_at" />
+                <ScalarProperty Name="created_at" ColumnName="created_at" />
+                <ScalarProperty Name="c_password" ColumnName="c_password" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="cell_phone" ColumnName="cell_phone" />
+                <ScalarProperty Name="last_name" ColumnName="last_name" />
+                <ScalarProperty Name="first_name" ColumnName="first_name" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="farmer_location">
+            <EntityTypeMapping TypeName="Plant_SystemModel.farmer_location">
+              <MappingFragment StoreEntitySet="farmer_location">
+                <ScalarProperty Name="location_id" ColumnName="location_id" />
+                <ScalarProperty Name="farmer_id" ColumnName="farmer_id" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="farmers">
+            <EntityTypeMapping TypeName="Plant_SystemModel.farmers">
+              <MappingFragment StoreEntitySet="farmers">
+                <ScalarProperty Name="deleted_at" ColumnName="deleted_at" />
+                <ScalarProperty Name="updated_at" ColumnName="updated_at" />
+                <ScalarProperty Name="created_at" ColumnName="created_at" />
+                <ScalarProperty Name="cell_phone" ColumnName="cell_phone" />
+                <ScalarProperty Name="last_name" ColumnName="last_name" />
+                <ScalarProperty Name="first_name" ColumnName="first_name" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="location_plant">
+            <EntityTypeMapping TypeName="Plant_SystemModel.location_plant">
+              <MappingFragment StoreEntitySet="location_plant">
+                <ScalarProperty Name="plant_id" ColumnName="plant_id" />
+                <ScalarProperty Name="location_id" ColumnName="location_id" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="locations">
+            <EntityTypeMapping TypeName="Plant_SystemModel.locations">
+              <MappingFragment StoreEntitySet="locations">
+                <ScalarProperty Name="country" ColumnName="country" />
+                <ScalarProperty Name="province" ColumnName="province" />
+                <ScalarProperty Name="county" ColumnName="county" />
+                <ScalarProperty Name="district" ColumnName="district" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="plant_brands">
+            <EntityTypeMapping TypeName="Plant_SystemModel.plant_brands">
+              <MappingFragment StoreEntitySet="plant_brands">
+                <ScalarProperty Name="deleted_at" ColumnName="deleted_at" />
+                <ScalarProperty Name="updated_at" ColumnName="updated_at" />
+                <ScalarProperty Name="created_at" ColumnName="created_at" />
+                <ScalarProperty Name="website" ColumnName="website" />
+                <ScalarProperty Name="brand_name" ColumnName="brand_name" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="plants">
+            <EntityTypeMapping TypeName="Plant_SystemModel.plants">
+              <MappingFragment StoreEntitySet="plants">
+                <ScalarProperty Name="customer_id" ColumnName="customer_id" />
+                <ScalarProperty Name="deleted_at" ColumnName="deleted_at" />
+                <ScalarProperty Name="updated_at" ColumnName="updated_at" />
+                <ScalarProperty Name="created_at" ColumnName="created_at" />
+                <ScalarProperty Name="location_id" ColumnName="location_id" />
+                <ScalarProperty Name="brand_id" ColumnName="brand_id" />
+                <ScalarProperty Name="category_id" ColumnName="category_id" />
+                <ScalarProperty Name="price" ColumnName="price" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sales">
+            <EntityTypeMapping TypeName="Plant_SystemModel.sales">
+              <MappingFragment StoreEntitySet="sales">
+                <ScalarProperty Name="isBuy" ColumnName="isBuy" />
+                <ScalarProperty Name="sales_price" ColumnName="sales_price" />
+                <ScalarProperty Name="farmer_id" ColumnName="farmer_id" />
+                <ScalarProperty Name="location_id" ColumnName="location_id" />
+                <ScalarProperty Name="plant_id" ColumnName="plant_id" />
+                <ScalarProperty Name="customer_id" ColumnName="customer_id" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="true" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

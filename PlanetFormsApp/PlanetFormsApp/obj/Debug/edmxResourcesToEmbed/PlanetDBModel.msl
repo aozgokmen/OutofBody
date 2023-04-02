@@ -1,0 +1,111 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="Plant_SystemModelStoreContainer" CdmEntityContainer="Plant_DBEntities">
+    <EntitySetMapping Name="categories">
+      <EntityTypeMapping TypeName="Plant_SystemModel.categories">
+        <MappingFragment StoreEntitySet="categories">
+          <ScalarProperty Name="category_name" ColumnName="category_name" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="customers">
+      <EntityTypeMapping TypeName="Plant_SystemModel.customers">
+        <MappingFragment StoreEntitySet="customers">
+          <ScalarProperty Name="deleted_at" ColumnName="deleted_at" />
+          <ScalarProperty Name="updated_at" ColumnName="updated_at" />
+          <ScalarProperty Name="created_at" ColumnName="created_at" />
+          <ScalarProperty Name="c_password" ColumnName="c_password" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="cell_phone" ColumnName="cell_phone" />
+          <ScalarProperty Name="last_name" ColumnName="last_name" />
+          <ScalarProperty Name="first_name" ColumnName="first_name" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="farmer_location">
+      <EntityTypeMapping TypeName="Plant_SystemModel.farmer_location">
+        <MappingFragment StoreEntitySet="farmer_location">
+          <ScalarProperty Name="location_id" ColumnName="location_id" />
+          <ScalarProperty Name="farmer_id" ColumnName="farmer_id" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="farmers">
+      <EntityTypeMapping TypeName="Plant_SystemModel.farmers">
+        <MappingFragment StoreEntitySet="farmers">
+          <ScalarProperty Name="deleted_at" ColumnName="deleted_at" />
+          <ScalarProperty Name="updated_at" ColumnName="updated_at" />
+          <ScalarProperty Name="created_at" ColumnName="created_at" />
+          <ScalarProperty Name="cell_phone" ColumnName="cell_phone" />
+          <ScalarProperty Name="last_name" ColumnName="last_name" />
+          <ScalarProperty Name="first_name" ColumnName="first_name" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="location_plant">
+      <EntityTypeMapping TypeName="Plant_SystemModel.location_plant">
+        <MappingFragment StoreEntitySet="location_plant">
+          <ScalarProperty Name="plant_id" ColumnName="plant_id" />
+          <ScalarProperty Name="location_id" ColumnName="location_id" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="locations">
+      <EntityTypeMapping TypeName="Plant_SystemModel.locations">
+        <MappingFragment StoreEntitySet="locations">
+          <ScalarProperty Name="country" ColumnName="country" />
+          <ScalarProperty Name="province" ColumnName="province" />
+          <ScalarProperty Name="county" ColumnName="county" />
+          <ScalarProperty Name="district" ColumnName="district" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="plant_brands">
+      <EntityTypeMapping TypeName="Plant_SystemModel.plant_brands">
+        <MappingFragment StoreEntitySet="plant_brands">
+          <ScalarProperty Name="deleted_at" ColumnName="deleted_at" />
+          <ScalarProperty Name="updated_at" ColumnName="updated_at" />
+          <ScalarProperty Name="created_at" ColumnName="created_at" />
+          <ScalarProperty Name="website" ColumnName="website" />
+          <ScalarProperty Name="brand_name" ColumnName="brand_name" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="plants">
+      <EntityTypeMapping TypeName="Plant_SystemModel.plants">
+        <MappingFragment StoreEntitySet="plants">
+          <ScalarProperty Name="customer_id" ColumnName="customer_id" />
+          <ScalarProperty Name="deleted_at" ColumnName="deleted_at" />
+          <ScalarProperty Name="updated_at" ColumnName="updated_at" />
+          <ScalarProperty Name="created_at" ColumnName="created_at" />
+          <ScalarProperty Name="location_id" ColumnName="location_id" />
+          <ScalarProperty Name="brand_id" ColumnName="brand_id" />
+          <ScalarProperty Name="category_id" ColumnName="category_id" />
+          <ScalarProperty Name="price" ColumnName="price" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sales">
+      <EntityTypeMapping TypeName="Plant_SystemModel.sales">
+        <MappingFragment StoreEntitySet="sales">
+          <ScalarProperty Name="isBuy" ColumnName="isBuy" />
+          <ScalarProperty Name="sales_price" ColumnName="sales_price" />
+          <ScalarProperty Name="farmer_id" ColumnName="farmer_id" />
+          <ScalarProperty Name="location_id" ColumnName="location_id" />
+          <ScalarProperty Name="plant_id" ColumnName="plant_id" />
+          <ScalarProperty Name="customer_id" ColumnName="customer_id" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

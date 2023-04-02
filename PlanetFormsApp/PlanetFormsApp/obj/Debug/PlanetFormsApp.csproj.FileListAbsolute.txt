@@ -1,0 +1,51 @@
+C:\Users\User\source\repos\PlanetFormsApp\PlanetFormsApp\bin\Debug\PlanetFormsApp.exe.config
+C:\Users\User\source\repos\PlanetFormsApp\PlanetFormsApp\bin\Debug\PlanetFormsApp.exe
+C:\Users\User\source\repos\PlanetFormsApp\PlanetFormsApp\bin\Debug\PlanetFormsApp.pdb
+C:\Users\User\source\repos\PlanetFormsApp\PlanetFormsApp\bin\Debug\EntityFramework.dll
+C:\Users\User\source\repos\PlanetFormsApp\PlanetFormsApp\bin\Debug\EntityFramework.xml
+C:\Users\User\source\repos\PlanetFormsApp\PlanetFormsApp\obj\Debug\PlanetFormsApp.csproj.AssemblyReference.cache
+C:\Users\User\source\repos\PlanetFormsApp\PlanetFormsApp\obj\Debug\PlanetFormsApp.csproj.SuggestedBindingRedirects.cache
+C:\Users\User\source\repos\PlanetFormsApp\PlanetFormsApp\obj\Debug\PlanetFormsApp.Form1.resources
+C:\Users\User\source\repos\PlanetFormsApp\PlanetFormsApp\obj\Debug\PlanetFormsApp.Properties.Resources.resources
+C:\Users\User\source\repos\PlanetFormsApp\PlanetFormsApp\obj\Debug\PlanetFormsApp.csproj.GenerateResource.cache
+C:\Users\User\source\repos\PlanetFormsApp\PlanetFormsApp\obj\Debug\PlanetFormsApp.csproj.CoreCompileInputs.cache
+C:\Users\User\source\repos\PlanetFormsApp\PlanetFormsApp\obj\Debug\PlanetFormsApp.csproj.CopyComplete
+C:\Users\User\source\repos\PlanetFormsApp\PlanetFormsApp\obj\Debug\PlanetFormsApp.exe
+C:\Users\User\source\repos\PlanetFormsApp\PlanetFormsApp\obj\Debug\PlanetFormsApp.pdb
+C:\Users\User\source\repos\PlanetFormsApp\PlanetFormsApp\obj\Debug\PlanetFormsApp.SecimForm.resources
+C:\Users\User\source\repos\PlanetFormsApp\PlanetFormsApp\obj\Debug\PlanetFormsApp.FidanForm.resources
+C:\Users\User\source\repos\PlanetFormsApp\PlanetFormsApp\obj\Debug\PlanetFormsApp.BagisForm.resources
+C:\Users\ozgok\OneDrive\Masaüstü\PlanetFormsAppnewww\PlanetFormsApp\PlanetFormsApp\bin\Debug\PlanetFormsApp.exe.config
+C:\Users\ozgok\OneDrive\Masaüstü\PlanetFormsAppnewww\PlanetFormsApp\PlanetFormsApp\bin\Debug\PlanetFormsApp.exe
+C:\Users\ozgok\OneDrive\Masaüstü\PlanetFormsAppnewww\PlanetFormsApp\PlanetFormsApp\bin\Debug\PlanetFormsApp.pdb
+C:\Users\ozgok\OneDrive\Masaüstü\PlanetFormsAppnewww\PlanetFormsApp\PlanetFormsApp\bin\Debug\EntityFramework.dll
+C:\Users\ozgok\OneDrive\Masaüstü\PlanetFormsAppnewww\PlanetFormsApp\PlanetFormsApp\bin\Debug\EntityFramework.xml
+C:\Users\ozgok\OneDrive\Masaüstü\PlanetFormsAppnewww\PlanetFormsApp\PlanetFormsApp\obj\Debug\PlanetFormsApp.csproj.AssemblyReference.cache
+C:\Users\ozgok\OneDrive\Masaüstü\PlanetFormsAppnewww\PlanetFormsApp\PlanetFormsApp\obj\Debug\PlanetFormsApp.csproj.SuggestedBindingRedirects.cache
+C:\Users\ozgok\OneDrive\Masaüstü\PlanetFormsAppnewww\PlanetFormsApp\PlanetFormsApp\obj\Debug\PlanetFormsApp.BagisForm.resources
+C:\Users\ozgok\OneDrive\Masaüstü\PlanetFormsAppnewww\PlanetFormsApp\PlanetFormsApp\obj\Debug\PlanetFormsApp.FidanForm.resources
+C:\Users\ozgok\OneDrive\Masaüstü\PlanetFormsAppnewww\PlanetFormsApp\PlanetFormsApp\obj\Debug\PlanetFormsApp.Form1.resources
+C:\Users\ozgok\OneDrive\Masaüstü\PlanetFormsAppnewww\PlanetFormsApp\PlanetFormsApp\obj\Debug\PlanetFormsApp.Properties.Resources.resources
+C:\Users\ozgok\OneDrive\Masaüstü\PlanetFormsAppnewww\PlanetFormsApp\PlanetFormsApp\obj\Debug\PlanetFormsApp.SecimForm.resources
+C:\Users\ozgok\OneDrive\Masaüstü\PlanetFormsAppnewww\PlanetFormsApp\PlanetFormsApp\obj\Debug\PlanetFormsApp.csproj.GenerateResource.cache
+C:\Users\ozgok\OneDrive\Masaüstü\PlanetFormsAppnewww\PlanetFormsApp\PlanetFormsApp\obj\Debug\PlanetFormsApp.csproj.CoreCompileInputs.cache
+C:\Users\ozgok\OneDrive\Masaüstü\PlanetFormsAppnewww\PlanetFormsApp\PlanetFormsApp\obj\Debug\PlanetFormsApp.csproj.CopyComplete
+C:\Users\ozgok\OneDrive\Masaüstü\PlanetFormsAppnewww\PlanetFormsApp\PlanetFormsApp\obj\Debug\PlanetFormsApp.exe
+C:\Users\ozgok\OneDrive\Masaüstü\PlanetFormsAppnewww\PlanetFormsApp\PlanetFormsApp\obj\Debug\PlanetFormsApp.pdb
+C:\Users\ozgok\OneDrive\Masaüstü\esrefteacher\burdan calıs\PlanetFormsApp\PlanetFormsApp\bin\Debug\PlanetFormsApp.exe.config
+C:\Users\ozgok\OneDrive\Masaüstü\esrefteacher\burdan calıs\PlanetFormsApp\PlanetFormsApp\bin\Debug\PlanetFormsApp.exe
+C:\Users\ozgok\OneDrive\Masaüstü\esrefteacher\burdan calıs\PlanetFormsApp\PlanetFormsApp\bin\Debug\PlanetFormsApp.pdb
+C:\Users\ozgok\OneDrive\Masaüstü\esrefteacher\burdan calıs\PlanetFormsApp\PlanetFormsApp\bin\Debug\EntityFramework.dll
+C:\Users\ozgok\OneDrive\Masaüstü\esrefteacher\burdan calıs\PlanetFormsApp\PlanetFormsApp\bin\Debug\EntityFramework.xml
+C:\Users\ozgok\OneDrive\Masaüstü\esrefteacher\burdan calıs\PlanetFormsApp\PlanetFormsApp\obj\Debug\PlanetFormsApp.csproj.AssemblyReference.cache
+C:\Users\ozgok\OneDrive\Masaüstü\esrefteacher\burdan calıs\PlanetFormsApp\PlanetFormsApp\obj\Debug\PlanetFormsApp.csproj.SuggestedBindingRedirects.cache
+C:\Users\ozgok\OneDrive\Masaüstü\esrefteacher\burdan calıs\PlanetFormsApp\PlanetFormsApp\obj\Debug\PlanetFormsApp.BagisForm.resources
+C:\Users\ozgok\OneDrive\Masaüstü\esrefteacher\burdan calıs\PlanetFormsApp\PlanetFormsApp\obj\Debug\PlanetFormsApp.FidanForm.resources
+C:\Users\ozgok\OneDrive\Masaüstü\esrefteacher\burdan calıs\PlanetFormsApp\PlanetFormsApp\obj\Debug\PlanetFormsApp.Form1.resources
+C:\Users\ozgok\OneDrive\Masaüstü\esrefteacher\burdan calıs\PlanetFormsApp\PlanetFormsApp\obj\Debug\PlanetFormsApp.Properties.Resources.resources
+C:\Users\ozgok\OneDrive\Masaüstü\esrefteacher\burdan calıs\PlanetFormsApp\PlanetFormsApp\obj\Debug\PlanetFormsApp.SecimForm.resources
+C:\Users\ozgok\OneDrive\Masaüstü\esrefteacher\burdan calıs\PlanetFormsApp\PlanetFormsApp\obj\Debug\PlanetFormsApp.csproj.GenerateResource.cache
+C:\Users\ozgok\OneDrive\Masaüstü\esrefteacher\burdan calıs\PlanetFormsApp\PlanetFormsApp\obj\Debug\PlanetFormsApp.csproj.CoreCompileInputs.cache
+C:\Users\ozgok\OneDrive\Masaüstü\esrefteacher\burdan calıs\PlanetFormsApp\PlanetFormsApp\obj\Debug\PlanetFormsApp.csproj.CopyComplete
+C:\Users\ozgok\OneDrive\Masaüstü\esrefteacher\burdan calıs\PlanetFormsApp\PlanetFormsApp\obj\Debug\PlanetFormsApp.exe
+C:\Users\ozgok\OneDrive\Masaüstü\esrefteacher\burdan calıs\PlanetFormsApp\PlanetFormsApp\obj\Debug\PlanetFormsApp.pdb
